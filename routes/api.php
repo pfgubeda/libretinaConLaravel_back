@@ -23,7 +23,7 @@ Route::prefix('libretina')->group(function () {
 Route::prefix('nota')->group(function () {
     Route::get('/{id}', [notaController::class, 'getNotasIdLibretina']);
     Route::get('/{id}/{fecha}', [notaController::class, 'getNotasIdLibrretinaFecha']);
-    Route::post('/', [notaController::class, 'addNota']);
+    Route::post('/{id}/{fecha}', [notaController::class, 'addNota']);
     Route::delete('/{id}', [notaController::class, 'deleteNota']);
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

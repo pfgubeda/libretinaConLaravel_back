@@ -12,12 +12,12 @@ class notaController extends Controller
         $notas = nota::where('libretina_id', $id)->get();
         return response()->json($notas);
     }
-    public function addNota(Request $request){
+    public function addNota(Request $request, $id, $fecha){
         $data['titulo'] = $request->titulo;
         $data['descripcion'] = $request->descripcion;
-        $data['fecha'] = $request->fecha;
+        $data['fecha'] = $fecha;
         $data['tipo'] = 'nota';
-        $data['libretina_id'] = $request->libretina_id;
+        $data['libretina_id'] = $id;
         nota::create($data);
         return response()->json([
             'message' => "Successfully created",
