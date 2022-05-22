@@ -12,6 +12,7 @@ class nota extends Model
         'titulo',
         'descripcion',
         'fecha',
+        'tipo',
         'libretina_id'
     ];
     public function libretina(){
