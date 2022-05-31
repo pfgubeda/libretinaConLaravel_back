@@ -32,7 +32,12 @@ class notaController extends Controller
         ], 200);
     }
     public function getNotasIdLibrretinaFecha($id, $fecha){
-        $notas = nota::where('libretina_id', $id)->where('fecha', $fecha)->get();
+        $notas = nota::where('libretina_id', $id)->where('fecha','=', $fecha)->get();
         return response()->json($notas);
+    }
+
+    public function getOne($id){
+        $nota = nota::find($id);
+        return response()->json($nota);
     }
 }

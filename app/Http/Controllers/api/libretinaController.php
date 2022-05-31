@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\libretina;
+use App\Models\horario;
+use App\Models\nota;
 
 class libretinaController extends Controller
 {
@@ -28,6 +30,8 @@ class libretinaController extends Controller
         ], 200);
     }
     public function delete($id){
+        $nota = nota::where('libretina_id',$id)->delete();
+        $horario = horario::where('libretina_id', $id)->delete();
         $res = libretina::find($id)->delete();
         return response()->json([
             'message' => "Successfully deleted",
